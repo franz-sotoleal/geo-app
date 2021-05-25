@@ -10,7 +10,7 @@ const api = axios.create({
 class GeoApi {
   getInfoFromIP = (ip) =>
     api
-      .post("api/location-for-ip", {
+      .post("api/products", {
         email: "test@mail.com",
         password: "12345678",
         ip: ip,
