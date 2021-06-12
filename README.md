@@ -10,3 +10,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 1. `docker build -t auth-service .`
 2. `docker run -d auth-service`
 
+## Configure the path
+
+Remember to properly setup the URLs to the loadbalancer in the services you wish to use

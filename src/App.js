@@ -30,8 +30,8 @@ function App() {
       const ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/;
       const ip = ipResponse.match(ipRegex)[0];
 
-      const response = await GeoApi.getInfoFromIP(ip);
-      setData({ country: response.country, catalog: response.products });
+      const response = await GeoApi.getInfoFromIP("Argentina");
+      setData({ country: response.country, catalog: response.products});
       setAlertState({ type: "success", message: "Info fetched", open: true });
     } catch (e) {
       setAlertState({
@@ -74,13 +74,14 @@ function App() {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {data?.catalog.map((row, i) => (
-                      <TableRow key={i}>
-                        <TableCell>{row.name}</TableCell>
-                        <TableCell>{row.count}</TableCell>
-                        <TableCell>{`$${row.price}`}</TableCell>
-                      </TableRow>
-                    ))}
+                    {data?.catalog.map((row, i) => {
+                        return <TableRow key={i}>
+                            <TableCell>{row.name}</TableCell>
+                            <TableCell>{row.count}</TableCell>
+                            <TableCell>{`$${row.price}`}</TableCell>
+                        </TableRow>
+                    }
+                    )}
                   </TableBody>
                 </Table>
               </TableContainer>

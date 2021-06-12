@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: `http://locahost:5000/`,
+    baseURL: `http://192.168.99.102:31466/`,
     headers: {
       "Content-Type": "application/json",
     },
@@ -13,7 +13,7 @@ class GeoApi {
       .post("api/products", {
         email: "test@mail.com",
         password: "12345678",
-        ip: ip,
+        country: ip,
       })
       .then((response) => response.data);
 }
